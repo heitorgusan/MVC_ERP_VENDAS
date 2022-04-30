@@ -24,7 +24,7 @@ public class FuncionarioModel {
 	private int idFuncionario;
 	
 	@NotNull
-	@Size(min = 2 , max = 15)
+	@Size(min = 2, max = 15)
 	private String nomeFuncionario;
 	
 	@NotNull
@@ -87,6 +87,5 @@ public class FuncionarioModel {
 	public void setDataCadastroFuncionario(Date dataCadastroFuncionario) {
 		this.dataCadastroFuncionario = dataCadastroFuncionario;
 	}
-	
-	
+		
 }

@@ -33,13 +33,18 @@ public class FuncionarioController {
 	
 	}
 	
-	@GetMapping("/{nome}")
+	@GetMapping("/nome/{nome}")
 	public ResponseEntity<List<FuncionarioModel>> GetByNome(@PathVariable String nome){
 		
 		return ResponseEntity.ok(funcionarioRepository.findAllByNomeFuncionarioContainingIgnoreCase(nome));
 		
 	}
-	
+	@GetMapping("/{id}")
+	public ResponseEntity<FuncionarioModel>GetById(@PathVariable int id){
+		return funcionarioRepository.findById(id)
+				.map(resp->ResponseEntity.ok(resp))
+				.orElse(ResponseEntity.notFound().build());
+	}
 	
 	@PostMapping
 	public ResponseEntity<FuncionarioModel> post(@RequestBody FuncionarioModel funcionario){
